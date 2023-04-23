@@ -113,7 +113,7 @@ const AutorizationButtonListener = () => {
       });
       
       });
-  }
+  }//
 
   const renderComments = (listComments, firstLoading = false, isLoading = false,isLogin = false) => {
 

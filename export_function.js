@@ -33,7 +33,7 @@ export function initLikeListeners(renderComments,listComments) {
 
     }
 };
-
+//
 
 
 export function initCommentListeners (listComments) {

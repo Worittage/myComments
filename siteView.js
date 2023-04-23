@@ -32,7 +32,7 @@ export function siteView(listComments, firstLoading=false, isLoading=false, auto
     <button class="link" id="toggle-button">${!isLoginMode ? 'Войти' : 'Зарегистрироваться'}</button>
   </div>`;
     return commentsHtml;
-  }
+  }//
 
   //Загрузка списка комментариев
   commentsHtml = `

@@ -9,6 +9,7 @@ let listComments = [];
 let token =null;
 let user = null;
 
+
 const updateComments = (firstLoading = false) => {
 
   // Первая загрузка
@@ -21,7 +22,12 @@ const updateComments = (firstLoading = false) => {
 
 
     renderComments(listComments);
-  });
+  })
+  .catch((error) => {
+    if (error.message === 'Сервер не отвечает') {
+      alert('Сервер не отвечает')
+    }
+  })
 };
 
 function postComment(TextAreaElement, InputElement) {
@@ -109,14 +115,14 @@ const AutorizationButtonListener = () => {
       });
   }
 
-  const renderComments = (listComments, firstLoading = false, isLoading = false,isLogin =false) => {
+  const renderComments = (listComments, firstLoading = false, isLoading = false,isLogin = false) => {
 
     const commentsHtml = siteView(listComments, firstLoading, isLoading,token? true:false,isLogin)
   
     // const buttonElement = document.getElementById("add-form-button");
     appEl.innerHTML = commentsHtml;
     const a=!(isLoading || firstLoading || isLogin || token === null);
-    if (!(isLoading || firstLoading || isLoading ||isLogin ||token===null)) {
+    if (!(isLoading || firstLoading || isLoading ||isLogin ||token === null)) {
       
       const InputElement = document.getElementById("add-form-name");
       const TextAreaElement = document.getElementById("add-form-text");

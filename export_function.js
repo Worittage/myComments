@@ -1,4 +1,4 @@
-const TextAreaElement = document.getElementById("add-form-text");
+
 
 export function getListComments(comment) {
     return {
@@ -18,22 +18,27 @@ export function initLikeListeners(renderComments,listComments) {
 
         likeElement.addEventListener("click", (event) => {
             event.stopPropagation();
+            
             const id = likeElement.dataset.id;
             if (listComments[id].isLiked) {
-                listComments[id].likes -= (listComments[id].likes) ? 1 : 0;
+                listComments[id].likes -= 1; 
                 listComments[id].isLiked = false;
             } else {
                 listComments[id].likes += 1;
                 listComments[id].isLiked = true;
             }
-            console.log(TextAreaElement.value)
             renderComments(listComments);
+            
         });
 
     }
 };
 
+
+
 export function initCommentListeners (listComments) {
+
+    const TextAreaElement = document.getElementById("add-form-text");
     // Запускаем обработчик клика на комментарии. Формируем ответ на комментарий
     const commentsElements = document.querySelectorAll(".comment");
 

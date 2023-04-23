@@ -1,0 +1,18 @@
+{
+  "name": "mycomments",
+  "version": "1.0.0",
+  "description": "проект Лента Комментариев",
+  "main": "api.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch"
+  },
+  "author": "Eugen",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.29.3"
+  },
+  "devDependencies": {
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.2"
+  }
+}

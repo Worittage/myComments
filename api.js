@@ -1,9 +1,9 @@
-const hostComments = "https://webdev-hw-api.vercel.app/api/v2/worittage/comments";
+const hostComments = "https://webdev-hw-api.vercel.app/api/v1/worittage/comments";
 const hostLogin = "https://webdev-hw-api.vercel.app/api/user/login";
 const hostRegisterUser = "https://webdev-hw-api.vercel.app/api/user";
 
 export function addComment(token,name, text) {
-   return fetch(hostComments, {
+   return fetch("https://webdev-hw-api.vercel.app/api/v1/worittage/comments", {
     method: "POST",
     headers: {
       Authorization: token,
@@ -24,6 +24,7 @@ export function addComment(token,name, text) {
     else if (response.status === 400) {
       alert('Короткое имя или комментарий');
       throw new Error('Короткое имя или комментарий');
+      
     }
     else if (response.status === 500) {
       // alert('Сервер не отвечает');

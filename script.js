@@ -142,11 +142,3 @@ const AutorizationButtonListener = () => {
   };
   
   updateComments(true);
-
-
-
-
-
-
-
-

@@ -1,5 +1,3 @@
-
-
 export function getListComments(comment) {
     return {
         name: comment.author.name,
@@ -50,5 +48,3 @@ export function initCommentListeners (listComments) {
         });
     }
 };
-
-

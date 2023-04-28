@@ -3,7 +3,7 @@ const hostLogin = "https://webdev-hw-api.vercel.app/api/user/login";
 const hostRegisterUser = "https://webdev-hw-api.vercel.app/api/user";
 
 export function addComment(token,name, text) {
-   return fetch("https://webdev-hw-api.vercel.app/api/v1/worittage/comments", {
+   return fetch(hostComments, {
     method: "POST",
     headers: {
       Authorization: token,
@@ -28,12 +28,19 @@ export function addComment(token,name, text) {
     }
     else if (response.status === 500) {
       // alert('Сервер не отвечает');
-      console.log('Сервер не отвечает');
-      alert("Кажется, у вас сломался интернет, попробуйте позже");
+      //console.log('Сервер не отвечает');
+      //alert("Кажется, у вас сломался интернет, попробуйте позже");
       //1
       throw new Error('Сервер не отвечает');
+
     }
   })
+  .catch(error => {
+    window.addEventListener(
+      "offline",
+      alert("Кажется, у вас сломался интернет, попробуйте позже")
+    );
+   })
 }
 
 export function getComments(token) {

@@ -1,3 +1,5 @@
+
+
 export function getListComments(comment) {
     return {
         name: comment.author.name,
@@ -31,7 +33,7 @@ export function initLikeListeners(renderComments,listComments) {
 
     }
 };
-//
+
 
 
 export function initCommentListeners (listComments) {
@@ -48,3 +50,5 @@ export function initCommentListeners (listComments) {
         });
     }
 };
+
+

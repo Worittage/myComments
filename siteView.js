@@ -32,7 +32,7 @@ export function siteView(listComments, firstLoading=false, isLoading=false, auto
     <button class="link" id="toggle-button">${!isLoginMode ? 'Войти' : 'Зарегистрироваться'}</button>
   </div>`;
     return commentsHtml;
-  }
+  }//
 
   //Загрузка списка комментариев
   commentsHtml = `
@@ -63,8 +63,10 @@ export function siteView(listComments, firstLoading=false, isLoading=false, auto
       <div class="link3">Чтобы добавить комментарий,<button class="link2" id="autorization-button">авторизуйтесь</button></div>`
     } else if(isLoading ){
       // Если идет запись нового комментария 
-      commentsHtml += `
-      <div class="add-form"> Комментарий добавляется..</div>` 
+      commentsHtml += 
+      `<div class="add-form"> Комментарий добавляется..</div>`
+       
+      
     } else {
 //Форма нового комментария для автороизованного пользователя
       commentsHtml +=`

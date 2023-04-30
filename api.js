@@ -1,20 +1,20 @@
-const hostComments = "https://webdev-hw-api.vercel.app/api/v1/worittage/comments";
+const hostComments = "https://webdev-hw-api.vercel.app/api/v2/worittage/comments";
 const hostLogin = "https://webdev-hw-api.vercel.app/api/user/login";
 const hostRegisterUser = "https://webdev-hw-api.vercel.app/api/user";
 
 export function addComment(token,name, text) {
-   return fetch(hostComments, {
+  return fetch(hostComments, {
     method: "POST",
     headers: {
       Authorization: token,
     },
     body: JSON.stringify({
-   //   name: name,
-    //  date: new Date(),
+      name: name,
+      //date: new Date(),
       text: text,
-   //   likes: 0,
-  //    isLiked: false,
-  //    forceError: true
+      //likes: 0,
+      //isLiked: false,
+      //forceError: true
     })
   }).then((response) => {
     if (response.status === 200) {
@@ -23,24 +23,23 @@ export function addComment(token,name, text) {
     }
     else if (response.status === 400) {
       alert('Короткое имя или комментарий');
-      throw new Error('Короткое имя или комментарий');
-      
+      return response.json()
+      //throw new Error('Короткое имя или комментарий');
     }
     else if (response.status === 500) {
       // alert('Сервер не отвечает');
-      //console.log('Сервер не отвечает');
-      //alert("Кажется, у вас сломался интернет, попробуйте позже");
-      //1
+      console.log('Сервер не отвечает');
       throw new Error('Сервер не отвечает');
-
     }
   })
   .catch(error => {
     window.addEventListener(
       "offline",
-      alert("Кажется, у вас сломался интернет, попробуйте позже")
-    );
-   })
+      alert(`Кажется у вас сломался интернет попробуйте похже ` )
+      `${response.json()}`
+    )
+  })
+  
 }
 
 export function getComments(token) {
@@ -54,8 +53,6 @@ export function getComments(token) {
       alert ('Ошибка при авторизации')
       throw new Error('Нет авторизации');
     }
-    if (response.status === 500) throw new Error('Сервер не отвечает')
-      
     return response.json();
   })
 }
@@ -65,7 +62,7 @@ export function loginUser({ login, password, }) {
     body: JSON.stringify({
       login,
       password
-    }),//fsefsxrgfszf
+    }),
     
   })
     .then((response) => {
@@ -116,5 +113,5 @@ export function deleteComment(token,id) {
       throw new Error('Прочие ошибки удаления');
     }
   })
-  
-}//
+}
+/////////////dWD
